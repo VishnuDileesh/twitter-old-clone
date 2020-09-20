@@ -1,8 +1,15 @@
 import React from 'react';
 
+import HeaderComponent from '../../components/HeaderComponent';
+import BannerComponent from '../../components/BannerComponent';
+
+
 const LoginPage = () => {
   return (
-    <h1>Login Page</h1>
+    <div className="container">
+      <HeaderComponent/>
+      <BannerComponent/>
+    </div>
   );
 };
 

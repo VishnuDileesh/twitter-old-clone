@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './index.css';
+import styles from './index.module.css';
 
 import MainComponent from '../MainComponent';
 import SideBarComponent from '../SideBarComponent';
@@ -8,7 +8,7 @@ import SideBarComponent from '../SideBarComponent';
 
 const WrapperComponent = () => {
   return (
-    <section className="wrapper">
+    <section className={styles.wrapper}>
       <MainComponent/>
       <SideBarComponent/>
     </section>

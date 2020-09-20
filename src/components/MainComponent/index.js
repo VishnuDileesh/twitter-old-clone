@@ -1,11 +1,14 @@
 import React from 'react';
 
-import './index.css';
+import styles from './index.module.css';
+
+import CreateTweetComponent from '../CreateTweetComponent/index';
 
 const MainComponent = () => {
   return (
-    <main className="main">
-      <h1>Main Component</h1>
+    <main className={styles.main}>
+      <CreateTweetComponent/>
+      {/* HomeTweetsComponent */}
     </main>
   );
 };

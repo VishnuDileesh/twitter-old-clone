@@ -1,4 +1,4 @@
-header{
+.header{
   padding: 1rem 0;
   display: flex;
   justify-content: space-between;
@@ -9,21 +9,21 @@ header{
   width: 20%;
 }
 
-nav{
+.nav{
   background-color: white;
   padding: 0 .4rem;
   border-radius: .2rem;
 }
 
-ul{
+.ul{
   display: flex;
 }
 
-li{
+.li{
   padding: .5rem .3rem;
 }
 
-a{
+.link{
   font-weight: bold;
   color: #008DB8;
 }

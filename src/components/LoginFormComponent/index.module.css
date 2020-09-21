@@ -1,0 +1,14 @@
+.formField{
+  display: flex;
+  flex-direction: column;
+}
+
+.form{
+  margin-top: 1.5rem;
+}
+
+.inputField{
+  padding: .3rem .5rem;
+  margin-bottom: .5rem;
+  outline: none;
+}

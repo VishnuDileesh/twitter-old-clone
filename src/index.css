@@ -35,3 +35,9 @@ a{
   width: 80%;
   margin: auto;
 }
+
+.btn{
+  outline: none;
+  padding: .5rem .8rem;
+  cursor: pointer;
+}

@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React, { useState, useContext } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import styles from './index.module.css';
 
 import { auth } from '../../services/firebase';
+import { AuthContext } from '../../context/Auth';
 
 const LoginFormComponent = () => {
+
+  const { currentUser } = useContext(AuthContext);
 
 
   const [email, setEmail] = useState('');
@@ -23,7 +27,16 @@ const LoginFormComponent = () => {
     
     auth.signInWithEmailAndPassword(email, password)
       .catch((error) => console.log(error))
+
+
+    setEmail('');
+    setPassword('');
+
   };
+
+  if(currentUser){
+    return <Redirect to='/'/>
+  }
 
 
   return (

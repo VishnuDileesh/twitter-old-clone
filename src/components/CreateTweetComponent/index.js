@@ -1,21 +1,26 @@
-import React, {useState} from 'react';
+import React, { useState, useContext } from 'react';
 
 import styles from './index.module.css';
 
 import { db } from '../../services/firebase';
 
+import { AuthContext } from '../../context/Auth';
+
 
 const CreateTweetComponent = () => {
+
+  const { currentUser } = useContext(AuthContext);
+
 
   const [newTweet, setNewTweet] = useState('');
 
   const handleChange = (e) => setNewTweet(e.target.value);
 
   const submitTweet = () => {
-    console.log(newTweet);
 
     db.collection('tweets').add({
       tweet: newTweet,
+      owner: currentUser.uid,
       timestamp: Date.now(),
     })
       .then((data) => console.log(data.id))

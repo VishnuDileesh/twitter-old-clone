@@ -1,0 +1,24 @@
+.header{
+  display: grid;
+  grid-template-columns: .5fr 1fr;
+}
+
+.profilePic{
+  max-width: 4rem;
+}
+
+.userStatus{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 1rem;
+}
+
+.userStat > h4{
+  font-size: 1rem;
+}
+
+.userStat > h5{
+  color: #5fa4ad;
+  font-size: .8rem;
+  font-weight: bold;
+}

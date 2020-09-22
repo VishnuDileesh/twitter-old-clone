@@ -1,11 +1,13 @@
 import React from 'react';
 
-import './index.css';
+import styles from './index.module.css';
+
+import UserCard from '../UserCard';
 
 const SideBarComponent = () => {
   return (
-    <article className="sidebar">
-      <h1>Side bar</h1>
+    <article className={styles.sidebar}>
+      <UserCard/>
     </article>
   );
 };

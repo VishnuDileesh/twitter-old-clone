@@ -1,16 +1,15 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import styles from './index.module.css';
 
 import { auth, db } from '../../services/firebase';
-import { AuthContext } from '../../context/Auth';
 
-const redEgg = '../../assets/images/redegg.jpg';
-const greenEgg = '../../assets/images/greenegg.jpg';
-const blueEgg = '../../assets/images/blueegg.jpg';
-const orangeEgg = '../../assets/images/orangeegg.jpg';
-const purpleEgg = '../../assets/images/purpleegg.jpg';
+const redEgg = 'assets/images/redegg.jpg';
+const greenEgg = 'assets/images/greenegg.jpg';
+const blueEgg = 'assets/images/blueegg.jpg';
+const orangeEgg = 'assets/images/orangeegg.jpg';
+const purpleEgg = 'assets/images/purpleegg.jpg';
 
 const profileEggs = [
   redEgg,
@@ -23,19 +22,20 @@ const profileEggs = [
 
 const JoinFormComponent = () => {
 
+  let history = useHistory();
+
   const [photoURL, setPhotoURL] = useState('');
+
 
   useEffect(() => {
     setPhotoURL(profileEggs[Math.random() * profileEggs.length | 0]);
   }, [])
 
 
-  const { currentUser } = useContext(AuthContext);
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [displayName, setDisplayName] = useState('');
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -43,27 +43,25 @@ const JoinFormComponent = () => {
     auth.createUserWithEmailAndPassword(email, password)
       .then((user) => {
 
-        setDisplayName(username);
+        auth.currentUser.updateProfile({displayName: username, photoURL})
+          .then(() => {
+            db.collection('users').doc(user.user.uid).set({
+              username,
+              email,
+              photoURL
+            })
+            .then(() => {
+              history.push('/');
+            });
 
-        auth.currentUser.updateProfile({displayName, photoURL});
+          })
         
-        db.collection('users').doc(user.user.uid).set({
-          username,
-          email,
-          photoURL
-        });
 
       })
 
-    setUsername('');
-    setEmail('');
-    setPassword('');
 
   }
 
-  if(currentUser){
-    return <Redirect to='/'/>;
-  }
 
   return (
     <div>

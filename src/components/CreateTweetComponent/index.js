@@ -23,7 +23,6 @@ const CreateTweetComponent = () => {
       owner: currentUser.uid,
       timestamp: Date.now(),
     })
-      .then((data) => console.log(data.id))
       .catch((error) => console.log(error))
 
     setNewTweet('');

@@ -50,7 +50,7 @@ const LoginFormComponent = () => {
         </div>
         <div className={styles.formField}>
           <label htmlFor="password">password</label>
-          <input className={styles.inputField} value={password} onChange={handlePasswordChange} type="password" id="password"/>
+          <input className={styles.inputField} autoComplete="off" value={password} onChange={handlePasswordChange} type="password" id="password"/>
         </div>
         <button className="btn" onClick={formSubmit}>Sign in</button>
       </form>

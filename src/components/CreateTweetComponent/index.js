@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import styles from './index.module.css';
 
@@ -13,8 +13,21 @@ const CreateTweetComponent = () => {
 
 
   const [newTweet, setNewTweet] = useState('');
+  const [charCount, setCharCount] = useState(140);
 
-  const handleChange = (e) => setNewTweet(e.target.value);
+
+  const handleChange = (e) => {
+    if(e.target.value.length > 140){
+      setNewTweet(e.target.value.slice(0, 140));
+    }else{
+      setNewTweet(e.target.value);
+    }
+  }
+
+  useEffect(() => {
+    setCharCount(140 - newTweet.length);
+  }, [newTweet]);
+
 
   const submitTweet = () => {
 
@@ -32,7 +45,7 @@ const CreateTweetComponent = () => {
     <section className={styles.createtweetcard}>
       <header className={styles.cardHeader}>
         <h1>What's happening?</h1>
-        <h1 className={styles.count}>140</h1>
+          <h1 className={styles.count}>{ charCount }</h1>
       </header>
       <section className={styles.tweetInputSec}>
         <textarea className={styles.tweetInput} value={newTweet} onChange={handleChange} rows="4"></textarea>

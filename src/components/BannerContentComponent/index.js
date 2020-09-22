@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import banner from '../../assets/images/banner.png';
 
 import styles from './index.module.css';
 
-const BannerContentComponent = () => {
+const BannerContentComponent = ({ linkTo, linkText }) => {
   return (
     <section>
       <h1><strong>What is Twitter?</strong></h1>
@@ -14,7 +15,7 @@ const BannerContentComponent = () => {
         the exchange of quick. frequent answers to one simple question: <b>What are you doing?</b>
       </h3>
       <div className={styles.buttonSec}>
-        <button className={styles.button}>Get Started - Join!</button>
+        <Link className={styles.button} to={linkTo}>{linkText}</Link>
       </div>
     </section>
   );

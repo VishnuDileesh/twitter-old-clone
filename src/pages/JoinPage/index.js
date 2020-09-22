@@ -1,8 +1,17 @@
 import React from 'react';
 
+import HeaderComponent from '../../components/HeaderComponent';
+import BannerComponent from '../../components/BannerComponent';
+import BannerContentComponent from '../../components/BannerContentComponent';
+
 const JoinPage = () => {
   return (
-    <h1>Join Page</h1>
+    <div className="container">
+      <HeaderComponent/>
+      <BannerComponent>
+        <BannerContentComponent linkTo='login' linkText='Get Started - Sign in!'/>
+      </BannerComponent>
+    </div>
   );
 };
 

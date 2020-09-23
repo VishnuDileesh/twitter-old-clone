@@ -1,0 +1,11 @@
+
+.tweetCard{
+  display: grid;
+  grid-template-columns: .15fr 2fr;
+  gap: 5px;
+  margin: 1rem 0;
+}
+
+.tweetUserImg{
+  max-width: 3rem;
+}

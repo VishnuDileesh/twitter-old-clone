@@ -16,26 +16,33 @@ const HomeTweetsComponent = () => {
 
   useEffect(() => {
 
-    db.collection('tweets').get()
-      .then((querySnapshot) => {
-        const data = querySnapshot.docs.map((doc) => doc.data());
+
+    const unsubscribeTweets = db.collection('tweets').orderBy('timestamp', 'desc').onSnapshot((tweetsSnapshot) => {
 
 
-        setTweets(data);
+      setTweets(
+        tweetsSnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))
+      )
 
     });
 
-    // TODO - clean up
 
-  }, [tweets, setTweets]);
+    return () => {
+      return unsubscribeTweets;
+    }
+
+
+  }, []);
 
 
   return(
     <section className={styles.container}>
       <h1>Home</h1>
+
         { tweets.map((tweet, index) => {
+
           return (
-            <TweetCard key={index} tweet={tweet.tweet}/>
+            <TweetCard key={index} tweet={tweet}/>
           );
         }) }
     </section>

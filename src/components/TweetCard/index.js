@@ -16,19 +16,24 @@ const TweetCard = ({ tweet }) => {
 
   }, [tweet.owner])
 
+  if(user){
 
-
-  return (
-      <div className={styles.tweetCard}>
-        <img className={styles.tweetUserImg} src={ user && user.photoURL } alt=""/>
-        <div>
-          <h2>
-            <b>{ user && user.username}</b> {tweet.tweet}
-          </h2>
-          <h6>{ new Date(tweet.timestamp).toString() }</h6>
+    return (
+        <div className={styles.tweetCard}>
+          <img className={styles.tweetUserImg} src={ user.photoURL } alt=""/>
+          <div>
+            <h2>
+              <b>{ user.username}</b> {tweet.tweet}
+            </h2>
+            <h6>{ new Date(tweet.timestamp).toString() }</h6>
+          </div>
         </div>
-      </div>
-  );
+    );
+
+  }else{
+    return null;
+  }
+
 };
 
 export default TweetCard;

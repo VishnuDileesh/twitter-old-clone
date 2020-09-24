@@ -16,9 +16,7 @@ const HomeTweetsComponent = () => {
 
   useEffect(() => {
 
-
     const unsubscribeTweets = db.collection('tweets').orderBy('timestamp', 'desc').onSnapshot((tweetsSnapshot) => {
-
 
       setTweets(
         tweetsSnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))
@@ -35,18 +33,26 @@ const HomeTweetsComponent = () => {
   }, []);
 
 
-  return(
-    <section className={styles.container}>
-      <h1>Home</h1>
 
-        { tweets.map((tweet, index) => {
+  if(tweets.length){
 
-          return (
-            <TweetCard key={tweet.id} tweet={tweet}/>
-          );
-        }) }
-    </section>
-  );
+    return(
+      <section className={styles.container}>
+        <h1>Home</h1>
+
+          { tweets.map((tweet, index) => {
+
+            return (
+              <TweetCard key={tweet.id} tweet={tweet}/>
+            );
+          }) }
+      </section>
+    );
+
+  }else{
+    return null;
+  }
+
 };
 
 export default HomeTweetsComponent;

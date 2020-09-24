@@ -42,7 +42,7 @@ const HomeTweetsComponent = () => {
         { tweets.map((tweet, index) => {
 
           return (
-            <TweetCard key={index} tweet={tweet}/>
+            <TweetCard key={tweet.id} tweet={tweet}/>
           );
         }) }
     </section>

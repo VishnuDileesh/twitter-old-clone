@@ -4,6 +4,9 @@ import styles from './index.module.css';
 
 import { db } from '../../services/firebase';
 
+import dayjs from 'dayjs';
+
+
 const TweetCard = ({ tweet }) => {
 
   const [user, setUser] = useState(null);
@@ -25,7 +28,7 @@ const TweetCard = ({ tweet }) => {
             <h2>
               <span className={styles.tweetUser}>{ user.username }</span> { tweet.tweet }
             </h2>
-            <h6>{ new Date(tweet.timestamp).toString() }</h6>
+            <h5>{  dayjs(tweet.timestamp).format('HH:mm A MMM D') } via TweetDeck</h5>
           </div>
         </div>
     );

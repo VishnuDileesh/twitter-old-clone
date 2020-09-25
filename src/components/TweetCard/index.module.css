@@ -9,6 +9,11 @@
 
 .tweetUser{
   color: black;
+  font-weight: bold;
+}
+
+.tweet{
+  font-weight: lighter;
 }
 
 .tweetUserImg{

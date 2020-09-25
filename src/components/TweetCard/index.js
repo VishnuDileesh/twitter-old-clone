@@ -25,7 +25,7 @@ const TweetCard = ({ tweet }) => {
         <div className={styles.tweetCard}>
           <img className={styles.tweetUserImg} src={ user.photoURL } alt=""/>
           <div>
-            <h2>
+            <h2 className={styles.tweet}>
               <span className={styles.tweetUser}>{ user.username }</span> { tweet.tweet }
             </h2>
             <h5>{  dayjs(tweet.timestamp).format('HH:mm A MMM D') } via TweetDeck</h5>

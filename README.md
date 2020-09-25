@@ -24,4 +24,8 @@ Runs the app in the development mode, by running the command - npm start<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 You also need to create a Firebase account and a file named .env.local in your project folder.
-And copy paste the Firebase configuration to your .env.local file. (Remember to append your config variables with the keyword REACT_APP)
+And copy paste the Firebase configuration to your .env.local file.<br /> 
+(Remember to append your config variables with the keyword REACT_APP)
+
+
+Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/vishnu-dileesh) & [Instagram](https://www.instagram.com/vi_c0de/)

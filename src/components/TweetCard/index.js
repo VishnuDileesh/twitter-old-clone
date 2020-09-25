@@ -23,7 +23,7 @@ const TweetCard = ({ tweet }) => {
           <img className={styles.tweetUserImg} src={ user.photoURL } alt=""/>
           <div>
             <h2>
-              <b>{ user.username}</b> {tweet.tweet}
+              <span className={styles.tweetUser}>{ user.username }</span> { tweet.tweet }
             </h2>
             <h6>{ new Date(tweet.timestamp).toString() }</h6>
           </div>

@@ -3,7 +3,12 @@
   display: grid;
   grid-template-columns: .15fr 2fr;
   gap: 5px;
+  align-items: center;
   margin: 1rem 0;
+}
+
+.tweetUser{
+  color: black;
 }
 
 .tweetUserImg{
@@ -11,4 +16,13 @@
   width: 3rem;
   height: 3rem;
   max-height: 3rem;
+}
+
+
+@media screen and (max-width: 770px){
+
+  .tweetCard{
+    align-items: start;
+  }
+
 }

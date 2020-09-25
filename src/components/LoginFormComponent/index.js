@@ -13,6 +13,8 @@ const LoginFormComponent = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -26,7 +28,8 @@ const LoginFormComponent = () => {
     e.preventDefault();
     
     auth.signInWithEmailAndPassword(email, password)
-      .catch((error) => console.log(error))
+      .catch(() => setError('email or password entered is incorrect'));
+
 
 
     setEmail('');
@@ -43,7 +46,11 @@ const LoginFormComponent = () => {
     <div>
       <h3>Please sign in</h3>
 
+
       <form className={styles.form}>
+        
+        { error && <p className="error">{error}</p> }
+
         <div className={styles.formField}>
           <label htmlFor="email">email address</label>
           <input className={styles.inputField} value={email} onChange={handleEmailChange} type="email" id="email"/>

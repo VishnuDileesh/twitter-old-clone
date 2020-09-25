@@ -41,3 +41,8 @@ a{
   padding: .5rem .8rem;
   cursor: pointer;
 }
+
+.error{
+  margin-bottom: .5rem;
+  color: #eb3c27;
+}

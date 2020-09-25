@@ -36,6 +36,8 @@ const JoinFormComponent = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -58,6 +60,7 @@ const JoinFormComponent = () => {
         
 
       })
+      .catch((error) => setError(error.message));
 
 
   }
@@ -68,6 +71,9 @@ const JoinFormComponent = () => {
       <h3>Please Sign up</h3>
 
       <form className={styles.form}>
+
+        { error && <p className="error">{error}</p> }
+
         <div className={styles.formField}>
           <label htmlFor="username">username</label>
           <input type="text" className={styles.inputField} value={username} onChange={event => setUsername(event.target.value)}/>

@@ -50,7 +50,8 @@ const JoinFormComponent = () => {
             db.collection('users').doc(user.user.uid).set({
               username,
               email,
-              photoURL
+              photoURL,
+              userId: user.user.uid,
             })
             .then(() => {
               history.push('/');

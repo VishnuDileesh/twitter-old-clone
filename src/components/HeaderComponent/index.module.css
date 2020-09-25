@@ -5,21 +5,3 @@
   align-items: center;
 }
 
-.nav{
-  background-color: white;
-  padding: 0 .4rem;
-  border-radius: .2rem;
-}
-
-.ul{
-  display: flex;
-}
-
-.li{
-  padding: .5rem .3rem;
-}
-
-.link{
-  font-weight: bold;
-  color: #008DB8;
-}

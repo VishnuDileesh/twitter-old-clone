@@ -1,6 +1,7 @@
 .header{
   display: grid;
   grid-template-columns: .5fr 1fr;
+  gap: .5rem;
 }
 
 .profilePic{

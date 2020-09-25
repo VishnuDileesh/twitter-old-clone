@@ -4,3 +4,14 @@
   width: 20%;
 }
 
+
+@media screen and (max-width: 670px){
+
+  .logo{
+    width: 40%;
+  }
+
+}
+
+
+

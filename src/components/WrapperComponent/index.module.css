@@ -4,3 +4,12 @@
   gap: 5px;
   margin: .5rem 0;
 }
+
+
+@media screen and (max-width: 1070px){
+
+  .wrapper{
+    grid-template-columns: 1fr;
+  }
+
+}

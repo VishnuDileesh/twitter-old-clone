@@ -1,0 +1,28 @@
+
+.nav{
+  background-color: white;
+  padding: 0 .4rem;
+  border-radius: .2rem;
+}
+
+.ul{
+  display: flex;
+}
+
+.li{
+  padding: .5rem .3rem;
+}
+
+.link{
+  font-weight: bold;
+  color: #008DB8;
+}
+
+
+@media screen and (max-width: 670px){
+
+  .nav{
+    display: none;
+  }
+
+}
